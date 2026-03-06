@@ -1,5 +1,6 @@
 package com.justin.todo;
 
+import jakarta.validation.Valid;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -25,12 +26,12 @@ public class TodoController {
     }
 
     @PostMapping
-    public Todo create(@RequestBody Todo todo) {
+    public Todo create(@Valid @RequestBody Todo todo) {
         return todoService.createTodo(todo, getCurrentUser());
     }
 
     @PutMapping("/{id}")
-    public Todo update(@PathVariable Long id, @RequestBody Todo updated) {
+    public Todo update(@PathVariable Long id, @Valid @RequestBody Todo updated) {
         return todoService.updateTodo(id, updated, getCurrentUser());
     }
 

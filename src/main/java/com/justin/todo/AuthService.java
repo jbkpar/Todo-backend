@@ -21,6 +21,9 @@ public class AuthService {
     }
 
     public ResponseEntity<?> register(String username, String password) {
+        if (username == null || username.isBlank()) {
+            return ResponseEntity.badRequest().body("Username cannot be blank");
+        }
         if (userRepository.findByUsername(username).isPresent()) {
             return ResponseEntity.badRequest().body("Username already taken");
         }
