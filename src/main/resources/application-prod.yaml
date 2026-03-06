@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tododb
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 666
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+app:
+  jwt-secret: thisismysupersecretkeythatislongenoughforhs256algorithm123456
+  jwt-expiration: 86400000
